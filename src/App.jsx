@@ -9,16 +9,11 @@ import EditProfile from './layouts/EditProfile';
 function App() {
   return (
     <>
-      {/* <Navbar isLoggedIn={false} nickname="석희" />
-      <Login /> 
+      <Navbar isLoggedIn={false} nickname="석희" />
+      {/* <Login />  */}
       <Signup />
-      <ExtraInfoModal
-        isOpen={true}
-        onClose={() => console.log('닫기')}
-        onSave={() => console.log('저장')}
-      />
-      <Main />  */}
-      <EditProfile/>
+      {/* `  */}
+      {/* <EditProfile/> */}
     </>
   )
 }
