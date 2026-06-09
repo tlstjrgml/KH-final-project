@@ -148,6 +148,8 @@ const  BoardFreeDetail = () =>{
             </div>
         </main>
     )
+
+    console.log("BoardFreeDetail test");
 }
 
 export default BoardFreeDetail;
