@@ -147,7 +147,7 @@ const  BoardFreeDetail = () =>{
 
             </div>
         </main>
-    )
-}
+    );
 
+}
 export default BoardFreeDetail;
