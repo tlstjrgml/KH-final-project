@@ -5,6 +5,10 @@ import Login from './layouts/Login';
 import Signup from './layouts/Signup';
 import Main from './layouts/Main';
 import EditProfile from './layouts/EditProfile';
+
+import BoardFree from './layouts/BoardFree';
+import BoardFreeDetail from './layouts/BoardFreeDetail';
+
 import MyPage from './layouts/MyPage';
 
 function App() {
@@ -21,6 +25,7 @@ function App() {
       </Routes>
     </BrowserRouter>
   );
+
 }
 
 export default App;
