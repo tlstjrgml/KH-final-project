@@ -9,6 +9,7 @@ import MyPage from './layouts/MyPage';
 import BoardReview from './layouts/BoardReview'
 import BoardReviewEdit from './layouts/BoardReviewEdit';
 import BoardReviewWrite from './layouts/BoardReviewWrite';
+import BoardReviewDetail from './layouts/BoardReviewDetail';
 import AlertDetail from './layouts/AlertDetail';
 import AlertWrite from './layouts/AlertWrite';
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/boardreview" element={<BoardReview />} />
         <Route path="/boardreview/write" element={<BoardReviewWrite />} />
         <Route path="/boardreview/edit" element={<BoardReviewEdit />} />
+        <Route path="/boardreview/detail" element={<BoardReviewDetail />} />
         <Route path="/alert/detail" element={<AlertDetail />} />
         <Route path="/alert/write" element={<AlertWrite />} />
       </Routes>
