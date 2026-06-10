@@ -79,6 +79,15 @@ const BoardReviewEdit = () => {
                         <textarea value={content} onChange={(e) => setContent(e.target.value)} />
                     </div>
 
+                    {/* 파일 첨부 */}
+                    <div className={styles.field}>
+                    <label>파일 첨부</label>
+                    <div className={styles.fileCustomBox}>
+                    <button type="button" className={styles.btnFile}>파일 선택</button>
+                    <span className={styles.fileName}>선택된 파일 없음</span>
+                    </div>
+                    </div>
+
                     <div className={styles.formActions}>
                         <button type="button" className={styles.btnCancel} onClick={() => window.history.back()}>취소</button>
                         <button type="submit" className={styles.btnSubmit}>수정 완료</button>
