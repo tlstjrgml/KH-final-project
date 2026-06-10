@@ -10,9 +10,17 @@ import BoardFree from './layouts/BoardFree';
 import BoardFreeDetail from './layouts/BoardFreeDetail';
 
 import MyPage from './layouts/MyPage';
+
+import BoardReview from './layouts/BoardReview'
+import BoardReviewEdit from './layouts/BoardReviewEdit';
+import BoardReviewWrite from './layouts/BoardReviewWrite';
+import BoardReviewDetail from './layouts/BoardReviewDetail';
+import AlertDetail from './layouts/AlertDetail';
+import AlertWrite from './layouts/AlertWrite';
 import WelfareList from './layouts/WelfareList';
 import WelfareDetail from './layouts/WelfareDetail';
 import Persona from './layouts/Persona';
+
 
 function App() {
   return (
@@ -25,13 +33,19 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/edit-profile" element={<EditProfile />} />
         <Route path="/mypage" element={<MyPage />} />
+
+        <Route path="/boardreview" element={<BoardReview />} />
+        <Route path="/boardreview/write" element={<BoardReviewWrite />} />
+        <Route path="/boardreview/edit" element={<BoardReviewEdit />} />
+        <Route path="/boardreview/detail" element={<BoardReviewDetail />} />
+        <Route path="/alert/detail" element={<AlertDetail />} />
+        <Route path="/alert/write" element={<AlertWrite />} />
         <Route path="/welfarelist" element={<WelfareList />} />
         <Route path="/welfaredetail" element={<WelfareDetail />} />
         <Route path="/persona" element={<Persona />} />
       </Routes>
     </BrowserRouter>
-  );
-
+  );       
 }
 
 export default App;

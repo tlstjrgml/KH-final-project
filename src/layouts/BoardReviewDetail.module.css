@@ -1,0 +1,279 @@
+.page {
+    min-height: 100vh;
+    padding: 80px 2rem 4rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.contentWrapper {
+    width: 100%;
+    max-width: 900px;
+}
+
+.categoryLabel {
+    display: inline-block;
+    background: #E6F1FB;
+    color: #185FA5;
+    padding: 4px 12px;
+    border-radius: 99px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.detailCard {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #DEE2E6;
+    padding: 2rem;
+}
+
+.welfareServiceBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #F1F3F5;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #DEE2E6;
+}
+
+.welfareInfo {
+    font-size: 14px;
+    color: #343A40;
+}
+
+.btnShortcut {
+    background: #fff;
+    border: 1px solid #378ADD;
+    color: #378ADD;
+    padding: 8px 16px;
+    border-radius: 99px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btnShortcut:hover {
+    background: #378ADD;
+    color: #fff;
+}
+
+.postHeader {
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid #DEE2E6;
+}
+
+.postTitle {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-left: 10px;
+    border-left: 3px solid #378ADD;
+}
+
+.postMetaContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.postMetaLeft {
+    display: flex;
+    gap: 10px;
+    font-size: 13px;
+    color: #6C757D;
+}
+
+.metaDivider {
+    color: #E9ECEF;
+}
+
+.actionBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #6C757D;
+    font-size: 13px;
+    padding: 4px 8px;
+}
+
+.danger:hover {
+    color: #E24B4A;
+}
+
+.postContent {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    padding: 1.25rem;
+    background: #F8F9FA;
+    border-radius: 10px;
+}
+
+.likeActionArea {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+}
+
+.btnLike {
+    height: 40px;
+    padding: 0 20px;
+    background: #fff;
+    color: #185FA5;
+    border: 1px solid #378ADD;
+    border-radius: 99px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.btnLike svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+.liked {
+    background: #185FA5;
+    color: #fff;
+    border-color: #185FA5;
+}
+
+.commentSection {
+    border-top: 1px solid #DEE2E6;
+    padding-top: 1.75rem;
+}
+
+.commentHeader {
+    font-size: 15px;
+    margin-bottom: 1.25rem;
+}
+
+.commentForm {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 1.75rem;
+}
+
+.commentInput {
+    flex: 1;
+    height: 48px;
+    border-radius: 10px;
+    padding: 0 16px;
+    border: 1px solid #E9ECEF;
+    outline: none;
+}
+
+.btnCommentSubmit {
+    height: 48px;
+    padding: 0 20px;
+    background: #378ADD;
+    color: #fff;
+    border: none;
+    border-radius: 99px;
+    cursor: pointer;
+}
+
+.commentItem {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid #F1F3F5;
+}
+
+.commentInfo {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 13px;
+}
+
+.commentAuthor {
+    font-weight: 600;
+}
+
+.commentDate {
+    color: #ADB5BD;
+}
+
+.commentText {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.replyFormWrapper {
+    display: none;
+    margin-top: 10px;
+    padding: 10px 12px;
+    background: #F8F9FA;
+    border-radius: 10px;
+}
+
+.active {
+    display: flex;
+}
+
+.replyIndicator {
+    color: #ADB5BD;
+    padding-top: 12px;
+}
+
+.bottomActions {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.btnList {
+    height: 44px;
+    padding: 0 28px;
+    background: #fff;
+    border: 1px solid #DEE2E6;
+    border-radius: 99px;
+    cursor: pointer;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 2rem;
+}
+
+.pageItem {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #DEE2E6;
+    border-radius: 6px;
+    background: #fff;
+    color: #6C757D;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.pageItem:hover {
+    border-color: #378ADD;
+    color: #185FA5;
+    background: #E6F1FB;
+}
+
+.pageItem.active {
+    background: #378ADD;
+    border-color: #378ADD;
+    color: #fff;
+}
