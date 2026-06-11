@@ -5,6 +5,28 @@ import ReportModals from './ReportModals';
 import NoticeModal from './NoticeModal';
 import styles from './AdminPage.module.css';
 
+// 1. Recharts 라이브러리 추가
+import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+
+// 2. 차트용 임시 더미 데이터 (마운트 시마다 재생성되지 않도록 컴포넌트 밖에 선언)
+const signupData = [
+    { date: '06-05', users: 12 },
+    { date: '06-06', users: 19 },
+    { date: '06-07', users: 15 },
+    { date: '06-08', users: 22 },
+    { date: '06-09', users: 30 },
+    { date: '06-10', users: 28 },
+    { date: '06-11', users: 35 },
+];
+
+const categoryData = [
+    { name: '주거', views: 400 },
+    { name: '금융', views: 300 },
+    { name: '교육', views: 550 },
+    { name: '건강', views: 200 },
+    { name: '취업', views: 700 },
+];
+
 function AdminPage() {
     const navigate = useNavigate();
 
@@ -172,13 +194,8 @@ function AdminPage() {
     const totalReportPages = Math.ceil(processedReports.length / rowsPerPage);
     const currentReportsList = processedReports.slice((currentReportPage - 1) * rowsPerPage, currentReportPage * rowsPerPage);
 
-    // [핵심 변경] 모달에서 넘겨준 파라미터(상태코드, 처리사유)를 모두 받을 수 있도록 수정
+    // [핵심 로직 연결] 모달에서 넘겨준 상태코드와 처리사유 수신
     const handleProcessComplete = (reportId, statusCode, processReason) => {
-        
-        // 나중에 여기에 백엔드 API 통신 코드가 들어갑니다.
-        // 예: axios.put(`/api/admin/reports/${reportId}`, { status: statusCode, reportResult: processReason })
-        // console.log("서버 전송 데이터:", { reportId, statusCode, processReason });
-
         const updatedReports = reports.filter(r => r.reportId !== reportId);
         setReports(updatedReports);
         const newProcessed = updatedReports.filter(r =>
@@ -211,19 +228,62 @@ function AdminPage() {
 
                 <main className={styles.content}>
 
-                    {/* 1. 대시보드 탭 */}
+                    {/* 1. 대시보드 탭 (Recharts 적용 완료) */}
                     {activeTab === 'dashboard' && (
                         <section className={`${styles['tab-content']} ${styles['active-tab']}`}>
                             <h2>대시보드</h2>
                             <div className={styles['dashboard-grid']}>
+                                
+                                {/* 가입자 추이 (꺾은선 그래프) */}
                                 <div className={`${styles.card} ${styles['chart-card']}`}>
-                                    <h3>가입자 추이 차트</h3>
-                                    <div className={styles['chart-placeholder']}>차트 영역</div>
+                                    <h3>최근 7일 가입자 추이</h3>
+                                    <div style={{ width: '100%', height: 300, marginTop: '20px' }}>
+                                        <ResponsiveContainer width="100%" height="100%">
+                                            <LineChart data={signupData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+                                                {/* 배경 가로선만 표시되도록 vertical=false 설정 */}
+                                                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E9ECEF" />
+                                                <XAxis dataKey="date" tick={{ fontSize: 12, fill: '#6C757D' }} tickMargin={10} axisLine={false} tickLine={false} />
+                                                <YAxis tick={{ fontSize: 12, fill: '#6C757D' }} axisLine={false} tickLine={false} />
+                                                <Tooltip contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }} />
+                                                <Legend wrapperStyle={{ paddingTop: '20px' }} />
+                                                <Line 
+                                                    type="monotone" 
+                                                    dataKey="users" 
+                                                    name="신규 가입자" 
+                                                    stroke="#0d6efd" 
+                                                    strokeWidth={3} 
+                                                    dot={{ r: 4, strokeWidth: 2, fill: '#fff' }} 
+                                                    activeDot={{ r: 6 }} 
+                                                />
+                                            </LineChart>
+                                        </ResponsiveContainer>
+                                    </div>
                                 </div>
+
+                                {/* 카테고리별 조회수 (막대 그래프) */}
                                 <div className={`${styles.card} ${styles['chart-card']}`}>
-                                    <h3>카테고리별 조회수 차트</h3>
-                                    <div className={styles['chart-placeholder']}>차트 영역</div>
+                                    <h3>카테고리별 복지 조회수</h3>
+                                    <div style={{ width: '100%', height: 300, marginTop: '20px' }}>
+                                        <ResponsiveContainer width="100%" height="100%">
+                                            <BarChart data={categoryData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+                                                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E9ECEF" />
+                                                <XAxis dataKey="name" tick={{ fontSize: 12, fill: '#6C757D' }} tickMargin={10} axisLine={false} tickLine={false} />
+                                                <YAxis tick={{ fontSize: 12, fill: '#6C757D' }} axisLine={false} tickLine={false} />
+                                                <Tooltip cursor={{ fill: '#F8F9FA' }} contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }} />
+                                                <Legend wrapperStyle={{ paddingTop: '20px' }} />
+                                                {/* 막대 상단 모서리를 둥글게(radius) 처리하고 두께 제한(maxBarSize) */}
+                                                <Bar 
+                                                    dataKey="views" 
+                                                    name="조회수" 
+                                                    fill="#198754" 
+                                                    radius={[6, 6, 0, 0]} 
+                                                    maxBarSize={50} 
+                                                />
+                                            </BarChart>
+                                        </ResponsiveContainer>
+                                    </div>
                                 </div>
+
                             </div>
                         </section>
                     )}
@@ -478,7 +538,6 @@ function AdminPage() {
                         content: selectedReport.reportResult
                     }}
                     onClose={() => setSelectedReport(null)}
-                    // [핵심 변경] 파라미터 3개를 넘겨받도록 연결
                     onComplete={(id, status, reason) => handleProcessComplete(id, status, reason)}
                 />
             )}
