@@ -53,7 +53,7 @@ const AppInner=()=>{
         <Route path="/alert/detail" element={<AlertDetail />} />
         <Route path="/alert/write" element={<AlertWrite />} />
         <Route path="/welfarelist" element={<WelfareList />} />
-        <Route path="/welfaredetail" element={<WelfareDetail />} />
+        <Route path="/welfaredetail/:id" element={<WelfareDetail />} />
         <Route path="/persona" element={<Persona />} />
         <Route path="/boardfree" element={<BoardFree />} />
         <Route path="/boardfreedetail" element={<BoardFreeDetail />} />
