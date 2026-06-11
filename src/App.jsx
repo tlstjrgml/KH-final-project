@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom'; // 1. BrowserRouter 추가
 import Navbar from './components/common/Navbar';
 import Login from './layouts/Login';
 import Signup from './layouts/Signup';
@@ -9,8 +10,9 @@ import AdminPage from './layouts/AdminPage';
 
 function App() {
   return (
-    <>
-       <Navbar isLoggedIn={false} nickname="석희" />
+    // 2. <> 대신 <BrowserRouter>로 전체를 감싸줍니다.
+    <BrowserRouter>
+      <Navbar isLoggedIn={false} nickname="석희" />
       {/* <Login /> 
       <Signup />
       <ExtraInfoModal
@@ -21,8 +23,8 @@ function App() {
       {/* <Main /> */}
       {/*<EditProfile/>*/}
       <AdminPage/>
-    </>
-  )
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
